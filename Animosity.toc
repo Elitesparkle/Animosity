@@ -1,0 +1,11 @@
+## Interface: 100105
+## Name: Animosity
+## Author: Elitesparkle
+## Version: 1.0.0
+## IconTexture: Interface\AddOns\Animosity\Textures\DragonridingGlyph.blp
+## Notes: Hides animations on Action Buttons.
+## SavedVariables: AnimosityDB
+
+Embeds.xml
+
+Animosity.lua
