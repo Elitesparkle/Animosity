@@ -5,6 +5,7 @@
 ## IconTexture: Interface\AddOns\Animosity\Textures\DragonridingGlyph.blp
 ## Notes: Hides animations on Action Buttons.
 ## SavedVariables: AnimosityDB
+## OptionalDeps: Ace3
 
 Embeds.xml
 
