@@ -6,9 +6,24 @@ local options = {
     type = 'group',
     args = {
         Description = {
-            name = "Enable the elements you want to see. Reload to apply changes.",
-            type = "description",
             order = 1,
+            name = "Select the elements you want to see.",
+            type = "description",
+        },
+        ProcGlow = {
+            order = 2,
+            name = "Proc Glow",
+            desc = "Show the animation of the proc glow on Action Buttons.",
+            type = "select",
+            width = "full",
+            style = "radio",
+            values = {
+                [0] = "None",
+                [1] = "Active",
+                [2] = "Start and Active"
+            },
+            set = function(_, value) Animosity.db.profile.ProcGlow = value end,
+            get = function(_) return Animosity.db.profile.ProcGlow end,
         },
         ChannelAnimation = {
             name = "Channel Animation",
@@ -34,14 +49,6 @@ local options = {
             set = function(_, value) Animosity.db.profile.InterruptAnimation = value end,
             get = function(_) return Animosity.db.profile.InterruptAnimation end,
         },
-        ProcGlow = {
-            name = "Proc Glow",
-            desc = "Toggle the proc glow on Action Buttons.",
-            type = "toggle",
-            width = "full",
-            set = function(_, value) Animosity.db.profile.ProcGlow = value end,
-            get = function(_) return Animosity.db.profile.ProcGlow end,
-        },
         TargetingReticleAnimation = {
             name = "Targeting Reticle Animation",
             desc = "Toggle the targeting reticle animation on Action Buttons.",
@@ -55,10 +62,10 @@ local options = {
 
 local defaults = {
     profile = {
+        ProcGlow = 1,
         ChannelAnimation = false,
         CooldownOverAnimation = false,
         InterruptAnimation = false,
-        ProcGlow = false,
         TargetingReticleAnimation = false,
     },
 }
@@ -69,45 +76,53 @@ function Animosity:OnInitialize()
     LibStub("AceConfig-3.0"):RegisterOptionsTable("Animosity", options)
     self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("Animosity", "Animosity")
 
-    if not self.db.profile.ProcGlow then
-        hooksecurefunc("ActionButton_SetupOverlayGlow", function(button)
-            if button.SpellActivationAlert then
-                button.SpellActivationAlert:SetAlpha(0)
-            end
-        end)
-    end
+    hooksecurefunc("ActionButton_SetupOverlayGlow", function(button)
+        if self.db.profile.ProcGlow == 0 and button.SpellActivationAlert then
+            button.SpellActivationAlert:SetAlpha(0)
+        else
+            button.SpellActivationAlert:SetAlpha(1)
+        end
+    end)
 
-    if not self.db.profile.CooldownOverAnimation then
-        hooksecurefunc("ActionButtonCooldown_OnCooldownDone", function(cooldown)
+    hooksecurefunc("ActionButton_ShowOverlayGlow", function(button)
+        if self.db.profile.ProcGlow == 1 and button.SpellActivationAlert then
+            button.SpellActivationAlert.ProcStartAnim:Stop()
+            button.SpellActivationAlert.ProcStartFlipbook:SetAlpha(0)
+            button.SpellActivationAlert.ProcLoop:Play()
+        end
+    end)
+
+    hooksecurefunc("ActionButtonCooldown_OnCooldownDone", function(cooldown)
+        if not self.db.profile.CooldownOverAnimation then
             local cooldownFlash = cooldown:GetParent().CooldownFlash
-        
+
             if cooldownFlash and cooldownFlash.FlashAnim:IsPlaying() then
                 cooldownFlash.FlashAnim:Stop()
                 cooldownFlash:Hide()
             end
-        end)
-    end
+        end
+    end)
 
     local function HideCastAnimations(button)
         button.cooldown:SetDrawBling(true)
 
-        if not self.db.profile.ChannelAnimation then
-            hooksecurefunc(button, "PlaySpellCastAnim", function()
+        hooksecurefunc(button, "PlaySpellCastAnim", function()
+            if not self.db.profile.ChannelAnimation then
                 button.SpellCastAnimFrame:Hide()
-            end)
-        end
+            end
+        end)
 
-        if not self.db.profile.InterruptAnimation then
-            hooksecurefunc(button, "PlaySpellInterruptedAnim", function()
+        hooksecurefunc(button, "PlaySpellInterruptedAnim", function()
+            if not self.db.profile.InterruptAnimation then
                 button.InterruptDisplay:Hide()
-            end)
-        end
+            end
+        end)
 
-        if not self.db.profile.TargetingReticleAnimation then
-            hooksecurefunc(button, "PlayTargettingReticleAnim", function()
+        hooksecurefunc(button, "PlayTargettingReticleAnim", function()
+            if not self.db.profile.TargetingReticleAnimation then
                 button.TargetReticleAnimFrame:Hide()
-            end)
-        end
+            end
+        end)
     end
 
     -- Register known Action Buttons
