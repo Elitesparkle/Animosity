@@ -1,4 +1,5 @@
 Animosity = LibStub("AceAddon-3.0"):NewAddon("Animosity", "AceConsole-3.0")
+local L = LibStub("AceLocale-3.0"):GetLocale("Animosity")
 
 local options = {
     name = "Animosity",
@@ -7,51 +8,51 @@ local options = {
     args = {
         Description = {
             order = 1,
-            name = "Select the elements you want to see.",
+            name = L["OPTIONS_SUBTITLE"],
             type = "description",
         },
         ProcGlow = {
             order = 2,
-            name = "Proc Glow",
-            desc = "Show the animation of the proc glow on Action Buttons.",
+            name = L["PROC_GLOW_NAME"],
+            desc = L["PROC_GLOW_DESC"],
             type = "select",
             width = "full",
             style = "radio",
             values = {
-                [0] = "None",
-                [1] = "Active",
-                [2] = "Start and Active"
+                [0] = L["PROC_GLOW_OPTION_0"],
+                [1] = L["PROC_GLOW_OPTION_1"],
+                [2] = L["PROC_GLOW_OPTION_2"]
             },
             set = function(_, value) Animosity.db.profile.ProcGlow = value end,
             get = function(_) return Animosity.db.profile.ProcGlow end,
         },
         ChannelAnimation = {
-            name = "Channel Animation",
-            desc = "Toggle the channel animation on Action Buttons.",
+            name = L["CHANNEL_ANIMATION_NAME"],
+            desc = L["CHANNEL_ANIMATION_DESC"],
             type = "toggle",
             width = "full",
             set = function(_, value) Animosity.db.profile.ChannelAnimation = value end,
             get = function(_) return Animosity.db.profile.ChannelAnimation end,
         },
         CooldownOverAnimation = {
-            name = "Cooldown Over Animation",
-            desc = "Toggle the cooldown over animation on Action Buttons.",
+            name = L["COOLDOWN_OVER_ANIMATION_NAME"],
+            desc = L["COOLDOWN_OVER_ANIMATION_DESC"],
             type = "toggle",
             width = "full",
             set = function(_, value) Animosity.db.profile.CooldownOverAnimation = value end,
             get = function(_) return Animosity.db.profile.CooldownOverAnimation end,
         },
         InterruptAnimation = {
-            name = "Interrupt Animation",
-            desc = "Toggle the interrupt animation on Action Buttons.",
+            name = L["INTERRUPT_ANIMATION_NAME"],
+            desc = L["INTERRUPT_ANIMATION_DESC"],
             type = "toggle",
             width = "full",
             set = function(_, value) Animosity.db.profile.InterruptAnimation = value end,
             get = function(_) return Animosity.db.profile.InterruptAnimation end,
         },
         TargetingReticleAnimation = {
-            name = "Targeting Reticle Animation",
-            desc = "Toggle the targeting reticle animation on Action Buttons.",
+            name = L["TARGETING_RETICLE_NAME"],
+            desc = L["TARGETING_RETICLE_DESC"],
             type = "toggle",
             width = "full",
             set = function(_, value) Animosity.db.profile.TargetingReticleAnimation = value end,
