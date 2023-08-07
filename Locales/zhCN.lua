@@ -10,8 +10,8 @@ L["OPTIONS_SUBTITLE"] = "请选择要在动作条按钮上看见哪些动画元�
 L["PROC_GLOW_NAME"] = "高亮动画"
 L["PROC_GLOW_DESC"] = "显示高亮动画效果。"
 L["PROC_GLOW_OPTION_0"] = "不显示"
-L["PROC_GLOW_OPTION_1"] = "激活状态"
-L["PROC_GLOW_OPTION_2"] = "触发特效与激活状态"
+L["PROC_GLOW_OPTION_1"] = "法术处于活跃狀態"
+L["PROC_GLOW_OPTION_2"] = "法术触发与活跃特效"
 
 L["CHANNEL_ANIMATION_NAME"] = "引导施法动画"
 L["CHANNEL_ANIMATION_DESC"] = "显示引导施法的动画效果。"
