@@ -5,22 +5,22 @@ if not L then
     return
 end
 
-L["OPTIONS_SUBTITLE"] = "Select the elements you want to see on Action Buttons."
+L["OPTIONS_SUBTITLE"] = "選擇您想要在動作按鈕上看到的元素。"
 
-L["PROC_GLOW_NAME"] = "Proc Glow"
-L["PROC_GLOW_DESC"] = "Show the animation of the proc glow."
-L["PROC_GLOW_OPTION_0"] = "None"
-L["PROC_GLOW_OPTION_1"] = "Active"
-L["PROC_GLOW_OPTION_2"] = "Start and Active"
+L["PROC_GLOW_NAME"] = "觸發光暈"
+L["PROC_GLOW_DESC"] = "顯示觸發效果的光暈動畫。"
+L["PROC_GLOW_OPTION_0"] = "無"
+L["PROC_GLOW_OPTION_1"] = "觸發"
+L["PROC_GLOW_OPTION_2"] = "開始與觸發"
 
-L["CHANNEL_ANIMATION_NAME"] = "Channel Animation"
-L["CHANNEL_ANIMATION_DESC"] = "Show the channel animation."
+L["CHANNEL_ANIMATION_NAME"] = "引導施法"
+L["CHANNEL_ANIMATION_DESC"] = "顯示引導施法動畫"
 
-L["COOLDOWN_OVER_ANIMATION_NAME"] = "Cooldown Over Animation"
-L["COOLDOWN_OVER_ANIMATION_DESC"] = "Show the cooldown over animation."
+L["COOLDOWN_OVER_ANIMATION_NAME"] = "冷卻結束"
+L["COOLDOWN_OVER_ANIMATION_DESC"] = "顯示冷卻結束動畫"
 
-L["INTERRUPT_ANIMATION_NAME"] = "Interrupt Animation"
-L["INTERRUPT_ANIMATION_DESC"] = "Show the interrupt animation."
+L["INTERRUPT_ANIMATION_NAME"] = "中斷施法"
+L["INTERRUPT_ANIMATION_DESC"] = "顯示中斷施法動畫"
 
-L["TARGETING_RETICLE_NAME"] = "Targeting Reticle Animation"
-L["TARGETING_RETICLE_DESC"] = "Show the targeting reticle animation."
+L["TARGETING_RETICLE_NAME"] = "範圍施法"
+L["TARGETING_RETICLE_DESC"] = "顯示指向範圍施法的動畫"
