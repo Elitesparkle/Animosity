@@ -4,7 +4,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale("Animosity")
 local options = {
     name = "Animosity",
     handler = Animosity,
-    type = 'group',
+    type = "group",
     args = {
         Description = {
             order = 1,
@@ -76,6 +76,9 @@ function Animosity:OnInitialize()
 
     LibStub("AceConfig-3.0"):RegisterOptionsTable("Animosity", options)
     self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("Animosity", "Animosity")
+end
+
+function Animosity:OnEnable()
 
     hooksecurefunc("ActionButton_SetupOverlayGlow", function(button)
         if self.db.profile.ProcGlow == 0 and button.SpellActivationAlert then
