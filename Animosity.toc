@@ -1,7 +1,7 @@
-## Interface: 100205
+## Interface: 100206
 ## Name: Animosity
 ## Author: Elitesparkle
-## Version: 1.3.4
+## Version: 1.3.5
 ## IconTexture: Interface\AddOns\Animosity\Textures\DragonridingGlyph.blp
 ## Notes: Hides animations on Action Buttons.
 ## Notes-itIT: Nasconde animazioni dei Pulsanti Azione.
