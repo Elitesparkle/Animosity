@@ -80,16 +80,8 @@ end
 
 function Animosity:OnEnable()
 
-    hooksecurefunc("ActionButton_SetupOverlayGlow", function(button)
-        if self.db.profile.ProcGlow == 0 and button.SpellActivationAlert then
-            button.SpellActivationAlert:SetAlpha(0)
-        else
-            button.SpellActivationAlert:SetAlpha(1)
-        end
-    end)
-
-    hooksecurefunc("ActionButton_ShowOverlayGlow", function(button)
-        if self.db.profile.ProcGlow == 1 and button.SpellActivationAlert then
+    hooksecurefunc(ActionButtonSpellAlertManager, "ShowAlert", function (_, button)
+        if self.db.profile.ProcGlow == 1 and button.HasAction and button.SpellActivationAlert then
             button.SpellActivationAlert.ProcStartAnim:Stop()
             button.SpellActivationAlert.ProcStartFlipbook:SetAlpha(0)
             button.SpellActivationAlert.ProcLoop:Play()
@@ -97,18 +89,11 @@ function Animosity:OnEnable()
     end)
 
     hooksecurefunc("ActionButtonCooldown_OnCooldownDone", function(cooldown)
-        if not self.db.profile.CooldownOverAnimation then
-            local cooldownFlash = cooldown:GetParent().CooldownFlash
-
-            if cooldownFlash and cooldownFlash.FlashAnim:IsPlaying() then
-                cooldownFlash.FlashAnim:Stop()
-                cooldownFlash:Hide()
-            end
-        end
+        local show_gcd = self.db.profile.CooldownOverAnimation
+        cooldown:SetDrawBling(show_gcd)
     end)
 
     local function HideCastAnimations(button)
-        button.cooldown:SetDrawBling(true)
 
         hooksecurefunc(button, "PlaySpellCastAnim", function()
             if not self.db.profile.ChannelAnimation then
