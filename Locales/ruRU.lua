@@ -1,26 +1,26 @@
--- Russian
+-- Russian (by ZamestoTV)
 local L = LibStub("AceLocale-3.0"):NewLocale("Animosity", "ruRU")
 
 if not L then
     return
 end
 
-L["OPTIONS_SUBTITLE"] = "Select the elements you want to see on Action Buttons."
+L["OPTIONS_SUBTITLE"] = "Выберите элементы, которые вы хотите видеть на кнопках действий."
 
-L["PROC_GLOW_NAME"] = "Proc Glow"
-L["PROC_GLOW_DESC"] = "Show the animation of the proc glow."
-L["PROC_GLOW_OPTION_0"] = "None"
-L["PROC_GLOW_OPTION_1"] = "Active"
-L["PROC_GLOW_OPTION_2"] = "Start and Active"
+L["PROC_GLOW_NAME"] = "Сияние активации"
+L["PROC_GLOW_DESC"] = "Показывать анимацию сияния активации."
+L["PROC_GLOW_OPTION_0"] = "Нет"
+L["PROC_GLOW_OPTION_1"] = "Активно"
+L["PROC_GLOW_OPTION_2"] = "Начало и активно"
 
-L["CHANNEL_ANIMATION_NAME"] = "Channel Animation"
-L["CHANNEL_ANIMATION_DESC"] = "Show the channel animation."
+L["CHANNEL_ANIMATION_NAME"] = "Анимация канала"
+L["CHANNEL_ANIMATION_DESC"] = "Показывать анимацию канала."
 
-L["COOLDOWN_OVER_ANIMATION_NAME"] = "Cooldown Over Animation"
-L["COOLDOWN_OVER_ANIMATION_DESC"] = "Show the cooldown over animation."
+L["COOLDOWN_OVER_ANIMATION_NAME"] = "Анимация окончания перезарядки"
+L["COOLDOWN_OVER_ANIMATION_DESC"] = "Показывать анимацию окончания перезарядки."
 
-L["INTERRUPT_ANIMATION_NAME"] = "Interrupt Animation"
-L["INTERRUPT_ANIMATION_DESC"] = "Show the interrupt animation."
+L["INTERRUPT_ANIMATION_NAME"] = "Анимация прерывания"
+L["INTERRUPT_ANIMATION_DESC"] = "Показывать анимацию прерывания."
 
-L["TARGETING_RETICLE_NAME"] = "Targeting Reticle Animation"
-L["TARGETING_RETICLE_DESC"] = "Show the targeting reticle animation."
+L["TARGETING_RETICLE_NAME"] = "Анимация прицела"
+L["TARGETING_RETICLE_DESC"] = "Показывать анимацию прицела."
