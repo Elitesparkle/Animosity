@@ -1,10 +1,10 @@
--- Russian
+-- Russian (by ZamestoTV)
 local L = LibStub("AceLocale-3.0"):NewLocale("Animosity", "ruRU")
 
 if not L then
     return
 end
---Translator ZamestoTV
+
 L["OPTIONS_SUBTITLE"] = "Выберите элементы, которые вы хотите видеть на кнопках действий."
 
 L["PROC_GLOW_NAME"] = "Сияние активации"
