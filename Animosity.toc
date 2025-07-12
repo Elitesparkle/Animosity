@@ -6,6 +6,7 @@
 ## Notes: Hides animations on Action Buttons.
 ## Notes-itIT: Nasconde animazioni dei Pulsanti Azione.
 ## Notes-zhCN: 隐藏动作条按钮上的动画。
+## Notes-ruRU: Скрывает анимацию на кнопках действий.
 ## SavedVariables: AnimosityDB
 ## OptionalDeps: Ace3
 
