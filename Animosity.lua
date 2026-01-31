@@ -88,7 +88,7 @@ function Animosity:OnEnable()
         end
     end)
 
-    hooksecurefunc("ActionButtonCooldown_OnCooldownDone", function(cooldown)
+    hooksecurefunc("ActionButton_ApplyCooldown", function(cooldown)
         local show_gcd = self.db.profile.CooldownOverAnimation
         cooldown:SetDrawBling(show_gcd)
     end)
