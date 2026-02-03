@@ -1,6 +1,8 @@
 Animosity = LibStub("AceAddon-3.0"):NewAddon("Animosity", "AceConsole-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("Animosity")
 
+local CRLF = "\n "
+
 local options = {
     name = "Animosity",
     handler = Animosity,
@@ -8,8 +10,9 @@ local options = {
     args = {
         Description = {
             order = 1,
-            name = L["OPTIONS_SUBTITLE"],
+            name = L["OPTIONS_SUBTITLE"] .. CRLF,
             type = "description",
+            fontSize = "medium",
         },
         ProcGlow = {
             order = 2,
